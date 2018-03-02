@@ -1,0 +1,33 @@
+{
+  "name": "coreshop/payum-heidelpay",
+  "type": "library",
+  "description": "Heideplay for Payum",
+  "keywords": [
+    "payment",
+    "heidelpay",
+    "ecommerce"
+  ],
+  "license": "GPL-3.0-or-later",
+  "authors": [
+    {
+      "name": "Dominik Pfaffenbauer",
+      "email": "dominik@pfaffenbauer.at",
+      "homepage": "https://www.pfaffenbauer.at/",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "payum/core": "^1.5",
+    "heidelpay/php-payment-api": "^1.4"
+  },
+  "autoload": {
+    "psr-4": {
+      "CoreShop\\Payum\\Heidelpay\\": ""
+    }
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "1.0-dev"
+    }
+  }
+}
