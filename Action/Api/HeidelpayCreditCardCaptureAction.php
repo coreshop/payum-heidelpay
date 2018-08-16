@@ -33,7 +33,7 @@ class HeidelpayCreditCardCaptureAction implements ActionInterface, GatewayAwareI
         $protocol = stripos($_SERVER['SERVER_PROTOCOL'],'https') === true ? 'https://' : 'http://';
 
         //TODO: Add options here
-        $request->getApi()->getApi()->registration(
+        $request->getApi()->getApi()->debit(
             $protocol . $_SERVER['HTTP_HOST'],
             'FALSE'
         );
