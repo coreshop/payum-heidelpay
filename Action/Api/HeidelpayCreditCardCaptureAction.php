@@ -31,9 +31,9 @@ class HeidelpayCreditCardCaptureAction implements ActionInterface, GatewayAwareI
         }
 
         $protocol = 'http://';
-        if ((!empty($_SERVER['HTTPS']) and $_SERVER['HTTPS'] !== 'off')
-            or $_SERVER['SERVER_PORT'] == 443
-            or $_SERVER['REQUEST_SCHEME'] === 'https'
+        if ((!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off')
+            || $_SERVER['SERVER_PORT'] == 443
+            || $_SERVER['REQUEST_SCHEME'] === 'https'
         ) {
             $protocol = 'https://';
         }
