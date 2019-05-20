@@ -73,7 +73,7 @@ class CaptureAction implements ActionInterface, ApiAwareInterface, GatewayAwareI
         );
 
         $api->getRequest()->async(
-            strtoupper($model['language']) ?: 'EN',
+            strtoupper(substr($model['language'],0 , 2)) ?: 'EN',
             $notifyToken->getTargetUrl() . '?afterUrl=' . $request->getToken()->getAfterUrl()
         );
 
