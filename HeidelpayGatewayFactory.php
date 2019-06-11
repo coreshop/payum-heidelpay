@@ -13,6 +13,7 @@
 namespace CoreShop\Payum\Heidelpay;
 
 use CoreShop\Payum\Heidelpay\Action\Api\HeidelpayCreditCardCaptureAction;
+use CoreShop\Payum\Heidelpay\Action\Api\HeidelpayDebitCardCaptureAction;
 use CoreShop\Payum\Heidelpay\Action\Api\HeidelpayPayPalCaptureAction;
 use CoreShop\Payum\Heidelpay\Action\Api\HeidelpaySofortCaptureAction;
 use CoreShop\Payum\Heidelpay\Action\Api\ObtainTokenAction;
@@ -42,6 +43,7 @@ class HeidelpayGatewayFactory extends GatewayFactory
             'payum.action.api.heidelpay_paypal_capture' => new HeidelpayPayPalCaptureAction(),
             'payum.action.api.heidelpay_sofort_capture' => new HeidelpaySofortCaptureAction(),
             'payum.action.api.heidelpay_creditcard_capture' => new HeidelpayCreditCardCaptureAction(),
+            'payum.action.api.heidelpay_debitcard_capture' => new HeidelpayDebitCardCaptureAction(),
             'payum.template.obtain_token' => '@PayumHeidelpay/Action/obtain_checkout_token.html.twig',
             'payum.action.api.heidelpay_obtain_token' => function (ArrayObject $config) {
                 return new ObtainTokenAction($config['payum.template.obtain_token']);

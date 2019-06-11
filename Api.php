@@ -13,6 +13,7 @@
 namespace CoreShop\Payum\Heidelpay;
 
 use Heidelpay\PhpPaymentApi\PaymentMethods\CreditCardPaymentMethod;
+use Heidelpay\PhpPaymentApi\PaymentMethods\DebitCardPaymentMethod;
 use Heidelpay\PhpPaymentApi\PaymentMethods\PayPalPaymentMethod;
 use Heidelpay\PhpPaymentApi\PaymentMethods\SofortPaymentMethod;
 use Http\Message\MessageFactory;
@@ -39,7 +40,8 @@ class Api
     const TYPES = [
         'PayPal' => PayPalPaymentMethod::class,
         'Sofort' => SofortPaymentMethod::class,
-        'CreditCard' => CreditCardPaymentMethod::class
+        'CreditCard' => CreditCardPaymentMethod::class,
+        'DebitCard' => DebitCardPaymentMethod::class
     ];
 
     /**

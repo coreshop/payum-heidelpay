@@ -17,6 +17,7 @@ use CoreShop\Payum\Heidelpay\Request\Api\HeidelpayCapture;
 use CoreShop\Payum\Heidelpay\Request\Api\ObtainToken;
 use CoreShop\Payum\Heidelpay\Request\Api\PopulateHeidelpay;
 use Heidelpay\PhpPaymentApi\PaymentMethods\CreditCardPaymentMethod;
+use Heidelpay\PhpPaymentApi\PaymentMethods\DebitCardPaymentMethod;
 use Payum\Core\Action\ActionInterface;
 use Payum\Core\ApiAwareInterface;
 use Payum\Core\ApiAwareTrait;
@@ -38,15 +39,19 @@ class CaptureAction implements ActionInterface, ApiAwareInterface, GatewayAwareI
     use GatewayAwareTrait;
     use GenericTokenFactoryAwareTrait;
 
+    /**
+     * CaptureAction constructor.
+     */
     public function __construct()
     {
         $this->apiClass = Api::class;
     }
 
+
     /**
-     * {@inheritDoc}
-     *
      * @param Capture $request
+     *
+     * @throws \Exception
      */
     public function execute($request)
     {
@@ -88,7 +93,9 @@ class CaptureAction implements ActionInterface, ApiAwareInterface, GatewayAwareI
         $this->gateway->execute(new HeidelpayCapture($request, $this->api));
 
         if ($api->getResponse()->isSuccess()) {
-            if ($api instanceof CreditCardPaymentMethod) {
+            if ($api instanceof CreditCardPaymentMethod
+                || $api instanceof DebitCardPaymentMethod
+            ) {
                 $obtainToken = new ObtainToken($request->getToken());
                 $obtainToken->setModel($model);
 
